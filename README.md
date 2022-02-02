@@ -2,7 +2,7 @@
 
 [![Blog](https://img.shields.io/badge/haileykim2014.github.io-green.svg)](https://haileykim2014.tistory.com/)
 
-기술과 지식을 나만의 언어로 정리하는 저장소입니다. 
+오늘 배운 것을 정리하는 공간입니다.
 
 <br>
 
