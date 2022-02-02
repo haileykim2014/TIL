@@ -7,7 +7,7 @@
 
 ## 목차
 1. [AOP](#AOP)
-2. [IoC/DI](#ioc)
+2. [IoC/DI](#IoCDI)
 
 </br>
 </br>
