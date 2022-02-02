@@ -2,9 +2,6 @@
 
 <p align="center"><img src="./image/48193689.png"></p> 
 
-
-![스프링 입문을 위한 자바 객체 지향의 원리와 이해](./image/48193689.png)
-
 [스프링 입문을 위한 자바 객체 지향의 원리와 이해](http://www.yes24.com/Product/Goods/17350624)를 바탕으로 정리한 자료입니다.
 
 
