@@ -1,4 +1,4 @@
-# TIL (Today I Learned) - feat. WIL (What I Learned)
+# TIL (Today I Learned)
 
 [![Blog](https://img.shields.io/badge/haileykim2014.github.io-green.svg)](https://haileykim2014.tistory.com/)
 
