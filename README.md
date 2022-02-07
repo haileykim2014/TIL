@@ -13,4 +13,4 @@
   * [토비의 스프링](./Spring/Core/bean%20lifecycle/bean%20lifecycle.md)  
 
 * 자료구조  
-  * [Do it 자료구조와 함께 배우는 알고리즘 입문] 
+  * [Do it 자료구조와 함께 배우는 알고리즘 입문] (./DataStructure/Do it 자료구조와 함께 배우는 알고리즘 입문/)
