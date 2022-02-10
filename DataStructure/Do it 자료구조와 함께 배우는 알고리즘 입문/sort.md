@@ -1,6 +1,7 @@
 ## 목차
 1. [버블 정렬](#버블-정렬)  
 2. [단순 삽입 정렬](#단순-삽입-정렬)
+3. [셸 정렬](#셸-정렬)
 
 </br>  
 
@@ -218,3 +219,17 @@ static void insertSort(int[] a, int n) {
 단순 삽입 정렬의 장점은 살리고 단점은 보완
 
 ### 실습6-6
+
+```java
+static void sellSort(int[] a, int n) {
+		for(int h = n /2 ; h > 0 ; h /= 2)
+			for(int i = h; i < n ; i++) {
+				int j;
+				int tmp = a[i];
+				for(j = i - h ; j >= 0 && a[j] > tmp; j -= h)
+					a[j + h] = a[j];
+				a[j + h] = tmp;
+			}
+	}
+```
+
