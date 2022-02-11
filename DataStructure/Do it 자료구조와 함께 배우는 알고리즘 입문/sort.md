@@ -258,7 +258,7 @@ static void sellSort(int[] a, int n) {
 	}
 ```
 
-</
+</br>
 
 ## 퀵 정렬
 
