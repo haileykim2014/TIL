@@ -224,9 +224,10 @@ static void insertSort(int[] a, int n) {
 	}
 ```  
 
-![6-5](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2773e061-b80f-499d-896a-237b44897195/Untitled.png)
+![6-5](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/2773e061-b80f-499d-896a-237b44897195/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220212%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220212T180128Z&X-Amz-Expires=86400&X-Amz-Signature=9f3399ca086f7acf24a59a9426e12a7a9ca8ed6701cc6b917bb2aaafa0a53948&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject)
 
 
+</br>
 ## 셸 정렬
 
 단순 삽입 정렬의 장점은 살리고 단점은 보완
