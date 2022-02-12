@@ -206,6 +206,11 @@ static void selectionSort(int[] a, int n) {
 2번째 요소부터 선택하여 진행
 
 ### 실습6-5
+- 정렬된 열의 왼쪽끝에 도달한다.
+- tmp 보다 작거나 같은 key를 갖는 항목 a[j]를 발견한다.
+- 드모르간 법칙 적용
+ - j가 0 보다 크다
+ - a[j-1]값이 tmp보다 크다 
 
 ```java
 static void insertSort(int[] a, int n) {
