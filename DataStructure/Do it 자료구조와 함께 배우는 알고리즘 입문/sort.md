@@ -224,7 +224,7 @@ static void insertSort(int[] a, int n) {
 	}
 ```  
 
-![6-5실습](https://www.notion.so/c2f5e11e6f9e4dd4a3a4660323b083af#cc7a2f7a57ba4b659f071d39cb4210f6)  
+![6-5](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2773e061-b80f-499d-896a-237b44897195/Untitled.png)
 
 
 ## 셸 정렬
