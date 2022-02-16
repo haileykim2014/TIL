@@ -397,3 +397,211 @@ class QuickSort {
 	}
 }
 ```
+
+</br>
+
+### 실습 6C-1
+
+퀵 정렬을 수행하는 과정출력
+
+```java
+// 퀵 정렬
+	static void quickSort(int[] a, int left, int right) {
+		int pl = left;					// 왼쪽 커서
+		int pr = right;					// 오른쪽 커서
+		int x = a[(pl + pr) / 2];		// 피벗
+
+		System.out.printf("a[%d]~a[%d] : {",left,right);
+		for(int i = left ;i <right;i++)
+			System.out.printf("%d , ",a[i]);
+		System.out.printf("%d|\n",a[right]);
+
+		do {
+			while (a[pl] < x) pl++;
+			while (a[pr] > x) pr--;
+			if (pl <= pr)
+				swap(a, pl++, pr--);
+		} while (pl <= pr);
+
+		if (left < pr)  quickSort(a, left, pr);
+		if (pl < right) quickSort(a, pl, right);
+	}
+```
+
+<aside>
+📎 a[0]~a[8] : {5 , 8 , 4 , 2 , 6 , 1 , 3 , 9 , 7|
+a[0]~a[4] : {5 , 3 , 4 , 2 , 1|
+a[0]~a[2] : {1 , 3 , 2|
+a[0]~a[1] : {1 , 2|
+a[3]~a[4] : {4 , 5|
+a[5]~a[8] : {6 , 8 , 9 , 7|
+a[5]~a[6] : {6 , 7|
+a[7]~a[8] : {9 , 8|
+
+</aside>
+
+비재귀적인 정렬
+
+### 실습 6-10
+
+```java
+package chap06;
+import java.util.Scanner;
+//퀵 정렬 (비재귀 버전)
+
+class QuickSort2 {
+	// 배열 요소 a[idx1]과 a[idx2]의 값을 바꿉니다.
+	static void swap(int[] a, int idx1, int idx2) {
+		int t = a[idx1];  a[idx1] = a[idx2];  a[idx2] = t;
+	}
+
+	// 퀵정렬
+	static void quickSort(int[] a, int left, int right) {
+		//스택의 생성
+		IntStack lstack = new IntStack(right - left + 1);
+		IntStack rstack = new IntStack(right - left + 1);
+
+		lstack.push(left);
+		rstack.push(right);
+
+		while (lstack.isEmpty() != true) {
+			int pl = left  = lstack.pop();		// 왼쪽 커서
+			int pr = right = rstack.pop();		// 오른쪽 커서
+			int x = a[(left + right) / 2];		// 피벗
+
+			do {
+				while (a[pl] < x) pl++;
+				while (a[pr] > x) pr--;
+				if (pl <= pr)
+					swap(a, pl++, pr--);
+			} while (pl <= pr);
+
+			if (left < pr) {
+				lstack.push(left);				// 왼쪽 그룹 범위의 
+				rstack.push(pr);				// 인덱스를 푸시합니다.
+			}
+			if (pl < right) {
+				lstack.push(pl);				// 오른쪽 그룹 범위의 
+				rstack.push(right);				// 인덱스를 푸시합니다.
+			}
+		}
+	}
+
+	public static void main(String[] args) {
+		Scanner stdIn = new Scanner(System.in);
+
+		System.out.println("퀵 정렬(비재귀 버전)");
+		System.out.print("요솟수：");
+		int nx = stdIn.nextInt();
+		int[] x = new int[nx];
+
+		for (int i = 0; i < nx; i++) {
+			System.out.print("x[" + i + "]：");
+			x[i] = stdIn.nextInt();
+		}
+
+		quickSort(x, 0, nx - 1);			// 배열 x를 퀵 정렬합니다.
+
+		System.out.println("오름차순으로 정렬했습니다.");
+		for (int i = 0; i < nx; i++)
+			System.out.println("x[" + i + "]＝" + x[i]);
+	}
+}
+```
+
+```java
+package chap06;
+// int형 스택
+
+public class IntStack {
+	private int max;			// 스택의 용량
+	private int ptr;			// 스택포인터
+	private int[] stk;			// 스택의 본체
+
+	// 실행시 예외：스택가 비어 있음
+	public class EmptyIntStackException extends RuntimeException {
+		public EmptyIntStackException() { }
+	}
+
+	// 실행시 예외：스택이 가득 참
+	public class OverflowIntStackException extends RuntimeException {
+		public OverflowIntStackException() { }
+	}
+
+	// 생성자
+	public IntStack(int capacity) {
+		ptr = 0;
+		max = capacity;
+		try {
+			stk = new int[max];			// 스택 본체용의 배열을 생성
+		} catch (OutOfMemoryError e) {	// 생성할 수 없음
+			max = 0;
+		}
+	}
+
+	// 스택에 x을 푸시
+	public int push(int x) throws OverflowIntStackException {
+		if (ptr >= max)										// 스택은 가득 참
+			throw new OverflowIntStackException();
+		return stk[ptr++] = x;
+	}
+
+	// 스택에서 데이터를 팝
+	public int pop() throws EmptyIntStackException {
+		if (ptr <= 0)										// 스택 비어 있음
+			throw new EmptyIntStackException();
+		return stk[--ptr];
+	}
+
+	// 스택에서 데이터를 피크
+	public int peek() throws EmptyIntStackException {
+		if (ptr <= 0)										// 스택 비어 있음
+			throw new EmptyIntStackException();
+		return stk[ptr - 1];
+	}
+
+	// 스택에서 x을 찾아서 인덱스를 반환 (찾지 못하면-1을 반환)
+	public int indexOf(int x) {
+		for (int i = ptr - 1; i >= 0; i--)
+			if (stk[i] == x)
+				return i;		// 검색 성공
+		return -1;				// 검색 실패
+	}
+
+	// 스택을 비움
+	public void clear() {
+		ptr = 0;
+	}
+
+	// 스택의 용량을 반환
+	public int capacity() {
+		return max;
+	}
+
+	// 스택의 데이터 수를 반환
+	public int size() {
+		return ptr;
+	}
+
+	// 스택이 비어 있나?
+	public boolean isEmpty() {
+		return ptr <= 0;
+	}
+
+	// 스택이 가득 차 있는가?
+	public boolean isFull() {
+		return ptr >= max;
+	}
+
+	// 스택 내의 모든 데이터를 바닥에서 꼭대기 순서로 출력함
+	public void dump() {
+		if (ptr <= 0)
+			System.out.println("스택이 비어 있습니다.");
+		else {
+			for (int i = 0; i < ptr; i++)
+				System.out.print(stk[i] + " ");
+			System.out.println();
+		}
+	}
+}
+```
