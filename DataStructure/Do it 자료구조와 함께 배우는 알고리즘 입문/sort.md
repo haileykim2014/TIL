@@ -371,7 +371,7 @@ class QuickSort {
 			if (pl <= pr)
 				swap(a, pl++, pr--);
 		} while (pl <= pr);
-
+		//2회의 재귀호출
 		if (left < pr)  quickSort(a, left, pr);
 		if (pl < right) quickSort(a, pl, right);
 	}
