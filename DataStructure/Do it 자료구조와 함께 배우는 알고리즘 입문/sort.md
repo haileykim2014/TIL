@@ -742,3 +742,268 @@ class MergeSort {
 	}
 }
 ```
+
+
+### 실습 6-13
+
+기본자료형 배열의 정렬(퀵정렬)
+
+```java
+package chap06;
+import java.util.Arrays;
+import java.util.Scanner;
+// Arrays.sort 메서드를 사용하여 정렬합니다(퀵 정렬).
+
+class ArraysSortTester {
+	public static void main(String[] args) {
+		Scanner stdIn = new Scanner(System.in);
+
+		System.out.print("요솟수：");
+		int num = stdIn.nextInt();
+		int[] x = new int[num];		// 배열의 크기는 num입니다.
+
+		for (int i = 0; i < num; i++) {
+			System.out.print("x[" + i + "]：");
+			x[i] = stdIn.nextInt();
+		}
+
+		Arrays.sort(x);				// 배열 x를 정렬합니다.
+
+		System.out.println("오름차순으로 정렬했습니다.");
+		for (int i = 0; i < num; i++)
+			System.out.println("x[" + i + "]＝" + x[i]);
+	}
+}
+```
+
+### 실습 6-14
+
+get(MONTH)에 의해 얻은 값은 0~11이므로 화면에 출력할때는 1을 더해야한다.
+
+```java
+package chap06;
+import java.util.Arrays;
+import java.util.GregorianCalendar;
+import static java.util.GregorianCalendar.*;
+// 달력의 배열을 정렬
+
+class SortCalendar {
+	public static void main(String[] args) {
+		GregorianCalendar[] x = {
+			new GregorianCalendar(2017, NOVEMBER, 1),	// 2017년 11월 01일
+			new GregorianCalendar(1963, OCTOBER, 18),	// 1963년 10월 18일
+			new GregorianCalendar(1985, APRIL, 5),		// 1985년 04월 05일
+		};
+
+		Arrays.sort(x);  // 배열 x를 정렬
+
+		for (int i = 0; i < x.length; i++)
+			System.out.printf("%04d년 %02d월 %02d일\n", 
+				x[i].get(YEAR),
+				x[i].get(MONTH) + 1,
+				x[i].get(DATE)
+			);
+	}
+}
+```
+
+### 실습 6-15
+
+```java
+package chap06;
+import java.util.Arrays;
+import java.util.Scanner;
+import java.util.Comparator;
+// 신체검사 데이터 배열을 정렬합니다.
+
+class PhyscExamSort {
+	// 신체검사 데이터
+	static class PhyscData {
+		String name;			// 이름
+		int    height;			// 키
+		double vision;			// 시력
+
+		// 생성자
+		PhyscData(String name, int height, double vision) {
+			this.name = name;
+			this.height = height;
+			this.vision = vision;
+		}
+
+		// 신체검사 데이터를 문자열로 반환합니다.
+		public String toString() {
+			return name + " " + height + " " + vision;
+		}
+
+		// 키 오름차순용 comparator
+		static final Comparator<PhyscData> HEIGHT_ORDER = new HeightOrderComparator();
+
+		private static class HeightOrderComparator implements Comparator<PhyscData> {
+			public int compare(PhyscData d1, PhyscData d2) {
+				return (d1.height > d2.height) ?  1 :
+						 (d1.height < d2.height) ? -1 : 0;
+			}
+		}
+	}
+
+	public static void main(String[] args) {
+		Scanner stdIn = new Scanner(System.in);
+		PhyscData[] x = {
+			new PhyscData("이나령", 162, 0.3),
+			new PhyscData("전서현", 173, 0.7),
+			new PhyscData("이수민", 175, 2.0),
+			new PhyscData("홍준기", 171, 1.5),
+			new PhyscData("유지훈", 168, 0.4),
+			new PhyscData("이호연", 174, 1.2),
+			new PhyscData("김한결", 169, 0.8),
+		};
+
+		Arrays.sort(x,								// 배열 x를 
+						PhyscData.HEIGHT_ORDER		// HEIGHT_ORDER을 사용하여 정렬
+					  );
+
+		System.out.println("■ 신체 검사 리스트 ■");
+		System.out.println(" 이름       키        시력");
+		System.out.println("--------------");
+		for (int i = 0; i < x.length; i++)
+			System.out.printf("%-8s%3d%5.1f\n",	x[i].name, x[i].height, x[i].vision);
+	}
+}
+```
+
+## 힙정렬
+
+- 가장 큰 값이 루트에 위치
+- 큰 값인 루트를 꺼내는 작업을 반복
+- 선택정렬 응용
+- 힙으로 구성된 10개의 요소에서 가장 큰 값을 없애면 나머지 9개 요소중에서 가장 큰 값을 루트로 정한다. 따라서 나머지 9개의 요소로 만든 트리도 힙의 형태를 유지할 수 있도록 재구성해야한다.
+- 루트를 없애고 힙상태 유지하기
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b713ee5e-e464-4c90-9129-af3fdb13fb67/Untitled.png)
+
+### 실습 6-16
+
+- 변수 i의 값을 n-1로 초기화한다.
+- a[0]과 a[i]를 바꾼다.
+- a[0],a[1],...a[i-1]를 힙으로 만든다.
+- i의 값을 1씩 줄여 0이되면 끝이 난다
+
+```java
+package chap06;
+import java.util.Scanner;
+// 힙 정렬
+
+class HeapSort {
+	// 배열 요소 a[idx1]과 a[idx2]의 값을 바꿉니다. 
+	static void swap(int[] a, int idx1, int idx2) {
+		int t = a[idx1];  
+		a[idx1] = a[idx2];  
+		a[idx2] = t;
+	}
+
+	// a[left] ~ a[right]를 힙으로 만듭니다. 
+	static void downHeap(int[] a, int left, int right) {
+		int temp = a[left];				// 루트
+		int child;						// 큰 값을 가진 노드
+		int parent;						// 부모
+
+		for (parent = left; parent < (right + 1) / 2; parent = child) {
+			int cl = parent * 2 + 1;							// 왼쪽 자식
+			int cr = cl + 1;									// 오른쪽 자식
+			child = (cr <= right && a[cr] > a[cl]) ? cr : cl;	// 큰 값을 가진 노드를 자식에 대입 
+			if (temp >= a[child])
+				break;
+			a[parent] = a[child];
+		}
+		a[parent] = temp;
+	}
+
+	// 힙 정렬
+	static void heapSort(int[] a, int n) {
+		for (int i = (n - 1) / 2; i >= 0; i--)	// a[i] ~ a[n-1]를 힙으로 만들기
+			downHeap(a, i, n - 1);
+
+		for (int i = n - 1; i > 0; i--) {
+			swap(a, 0, i);				// 가장 큰 요소와 아직 정렬되지 않은 부분의 마지막 요소를 교환
+			downHeap(a, 0, i - 1);		// a[0] ~ a[i-1]을 힙으로 만듭니다.
+		}
+	}
+
+	public static void main(String[] args) {
+		Scanner stdIn = new Scanner(System.in);
+
+		System.out.println("힙 정렬");
+		System.out.print("요솟수：");
+		int nx = stdIn.nextInt();
+		int[] x = new int[nx];
+
+		for (int i = 0; i < nx; i++) {
+			System.out.print("x[" + i + "]：");
+			x[i] = stdIn.nextInt();
+		}
+
+		heapSort(x, nx);	// 배열 x를 힙 정렬합니다.
+
+		System.out.println("오름차순으로 정렬했습니다.");
+		for (int i = 0; i < nx; i++)
+			System.out.println("x[" + i + "]＝" + x[i]);
+	}
+}
+```
+
+## 도수정렬
+
+요소의 대소관계를 판단하지 않고 빠르게 정렬
+
+1단계: 배열 a를 바탕으로 각 점수에 해당하는 학생이 몇명인지 나타내기
+
+2단계: 누적도수분포표 만들기 
+
+3단계:목적배열 만들기
+
+### 실습 6-17
+
+```java
+package chap06;
+import java.util.Scanner;
+// 도수 정렬
+
+class Fsort {
+	// 도수 정렬(0 이상 max 이하의 값을 입력합니다） 
+	static void fSort(int[] a, int n, int max) {
+		int[] f = new int[max + 1];		// 누적 도수
+		int[] b = new int[n];			// 작업용 목적 배열
+
+		for (int i = 0;     i < n;    i++) f[a[i]]++;				// 1단계
+		for (int i = 1;     i <= max; i++) f[i] += f[i - 1];		// 2단계
+		for (int i = n - 1; i >= 0;   i--) b[--f[a[i]]] = a[i];		// 3단계
+		for (int i = 0;     i < n;    i++) a[i] = b[i];				// 4단계
+	}
+
+	public static void main(String[] args) {
+		Scanner stdIn = new Scanner(System.in);
+
+		System.out.println("도수 정렬");
+		System.out.print("요솟수：");
+		int nx = stdIn.nextInt();
+		int[] x = new int[nx];
+
+		for (int i = 0; i < nx; i++) {
+			do {
+				System.out.print("x[" + i + "]：");
+				x[i] = stdIn.nextInt();
+			} while (x[i] < 0);
+		}
+
+		int max = x[0];
+		for (int i = 1; i < nx; i++)
+			if (x[i] > max) max = x[i];
+
+		fSort(x, nx, max);				// 배열 x를 도수 정렬
+
+		System.out.println("오름차순으로 정렬했습니다.");
+		for (int i = 0; i < nx; i++)
+			System.out.println("x[" + i + "]＝" + x[i]);
+	}
+}
+```
