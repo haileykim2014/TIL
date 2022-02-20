@@ -873,6 +873,8 @@ class PhyscExamSort {
 }
 ```
 
+
+
 ## 힙정렬
 
 - 가장 큰 값이 루트에 위치
@@ -881,7 +883,7 @@ class PhyscExamSort {
 - 힙으로 구성된 10개의 요소에서 가장 큰 값을 없애면 나머지 9개 요소중에서 가장 큰 값을 루트로 정한다. 따라서 나머지 9개의 요소로 만든 트리도 힙의 형태를 유지할 수 있도록 재구성해야한다.
 - 루트를 없애고 힙상태 유지하기
 
-<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/b713ee5e-e464-4c90-9129-af3fdb13fb67/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220218%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220218T152851Z&X-Amz-Expires=86400&X-Amz-Signature=fc629887b9d7ba1d50c7c3cde63c5a64d3552d7cb9f355914d38267088e0b93d&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject" width="50%" height="50%">
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/b713ee5e-e464-4c90-9129-af3fdb13fb67/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220220%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220220T053816Z&X-Amz-Expires=86400&X-Amz-Signature=bd5680bd6bc35aa93aad58d616043e0a458f4e28c315e8df49b1f9b7b50ca3f3&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject" width="50%" height="50%">
 
 
 ### 실습 6-16
