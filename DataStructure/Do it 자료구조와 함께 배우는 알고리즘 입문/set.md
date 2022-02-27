@@ -236,9 +236,9 @@ public class IntSetTester {
 			int j = 0;
 			for (; j < s.num; j++)//새로운 집합만큼 돌리기
 				if (set[i] == s.set[j])//새로운집합과 기존집합비교
-					break;
-			if (j == s.num) // set[i]는 s에 포함되지 않음
-				return false;
+					break;//새로운 집합요소와 기존집합요소가 같으면 for문 벗어나기
+			if (j == s.num) // set[i]는 s에 포함되지 않음, for문 벗어난 시점의 인덱스와 새로운집합요소 크기가 같으면 다 돈것
+				return false;//s.num이 남아야하는데 이미 다 돌았다는건 부분집합이 아니라는것 
 		}
 		return true;
 	}
