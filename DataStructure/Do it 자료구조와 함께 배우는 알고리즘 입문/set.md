@@ -226,3 +226,28 @@ public class IntSetTester {
 	}
 }
 ```
+
+### 연습 7-3
+
+```java
+// 집합 s의 부분집합인가요?
+	public boolean isSubsetOf(IntSet_07_03 s) {
+		for (int i = 0; i < num; i++) {//기존 집합만큼 반복문 돌리기
+			int j = 0;
+			for (; j < s.num; j++)//새로운 집합만큼 돌리기
+				if (set[i] == s.set[j])//새로운집합과 기존집합비교
+					break;
+			if (j == s.num) // set[i]는 s에 포함되지 않음
+				return false;
+		}
+		return true;
+	}
+
+	// 집합 s의 진부분집합인가요? = s.num의 요소수가 num의 요소수보다 커야 기존집합이 새로운집합의 진부분집합
+	// a는 b에 포함된다. & a와 b는 같지않다.
+	public boolean isProperSubsetOf(IntSet_07_03 s) {
+		if (num >= s.num) // 요솟수가 s 이상이면
+			return false; // s의 진부분집합이 아님
+		return s.isSubsetOf(s);
+	}
+```
