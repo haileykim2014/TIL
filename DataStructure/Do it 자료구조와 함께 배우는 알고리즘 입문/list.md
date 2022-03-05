@@ -13,7 +13,9 @@
 ## 09-2 포인터로 연결 리스트 만들기
 
 ### 실습 9-1
-
+- 연결리스트가 비었는지 판단 : head = null  
+- 노드가 1개인 연결리스트 판단 : head.next = null  
+- 노드가 2개인 연결리스트 판단:  head.next.next = null  
 ```java
 package chap09;
 import java.util.Comparator;
