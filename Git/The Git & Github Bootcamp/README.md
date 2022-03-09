@@ -1,5 +1,9 @@
 ## 시작..
 회사에서 소스트리를 이용하는데 터미널환경 및 깃을 이해하기 위해 공부하기 시작
+
+## Udemy - Git&Github course
+유데미의 깃 강의를 바탕으로 
+
 </br>
 
 ## Paste in Git Bash
