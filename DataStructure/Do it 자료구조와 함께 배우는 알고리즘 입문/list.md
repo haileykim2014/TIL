@@ -24,7 +24,7 @@ import java.util.Comparator;
 public class LinkedList<E> {
 	// 노드
 	class Node<E> {
-		private E data;			// 데이터
+		private E data;			// 데이터, 데이터에 대한 참조
 		private Node<E> next;	// 뒤쪽 포인터(다음 노드 참조)
 
 		// 생성자
