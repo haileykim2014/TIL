@@ -42,12 +42,12 @@ public class LinkedList<E> {
 		head = crnt = null;
 	}
 
-	// 노드 검색
+	// 노드 검색, 선형검색 (key,선택한 노드의 데이터)
 	public E search(E obj, Comparator<? super E> c) {
-		Node<E> ptr = head;							// 현재 스캔중인  노드
+		Node<E> ptr = head;							// 현재 스캔중인  노드, prt는 head로 초기화, 
 
 		while (ptr != null) {
-			if (c.compare(obj, ptr.data) == 0) {	// 검색 성공
+			if (c.compare(obj, ptr.data) == 0) {	// 검색 성공 
 				crnt = ptr;
 				return ptr.data;
 			}
@@ -67,9 +67,9 @@ public class LinkedList<E> {
 		if (head == null)							// 리스트가 비어 있으면 
 			addFirst(obj);							// 머리에 삽입
 		else {
-			Node<E> ptr = head;
-			while (ptr.next != null)
-				ptr = ptr.next;
+			Node<E> ptr = head; //머리노드를 가르킨다. 
+			while (ptr.next != null) //계속 해서 다음노드를 가리킨다. 노드를 처음부터 스캔 
+				ptr = ptr.next; //제일 마지막 노드찾기
 			ptr.next = crnt = new Node<E>(obj, null);
 		}
 	}
