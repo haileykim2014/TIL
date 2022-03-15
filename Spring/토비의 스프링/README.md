@@ -1,6 +1,3 @@
-<img src="./image/800x0.png" width="250" />
-
-[토비의 스프링](http://www.yes24.com/Product/Goods/76074405?OzSrank=2)을 바탕으로 작성한 자료입니다.
 
 <br>
 
