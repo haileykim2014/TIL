@@ -5,7 +5,7 @@
 </br>
 
 ## Paste in Git Bash
-ctrl + insert
+shift + insert
 
 
 ## Configure
