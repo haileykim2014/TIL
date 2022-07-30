@@ -29,5 +29,7 @@
 * 데이터베이스
   * [MySQL로 배우는 데이터베이스 개론과 실습](./MySQL로%20배우는%20데이터베이스%20개론과%20실습)  
 
+* AWS
+  * AWS Certified Solutions Architect Associate
 <br>
 
