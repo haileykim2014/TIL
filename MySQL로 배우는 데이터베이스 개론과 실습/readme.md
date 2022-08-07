@@ -10,3 +10,4 @@
 | 2주차 | ☑️ | ☑️ | Chapter 02 관계 데이터 모델   |
 | 3주차 | ☑️ | ☑️ | Chapter 03 SQL 기초        |
 | 4주차 | ☑️ | ☑️ | Chapter 04 SQL  |
+| 5주차 | ☑️ | ☑️ | Chapter 05 SQL  |
