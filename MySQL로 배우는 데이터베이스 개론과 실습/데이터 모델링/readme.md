@@ -11,7 +11,7 @@
 
 **데이터 모델링 과정**
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4daa813f-a2be-44a0-b6d3-a1a364ba0aed/Untitled.png)
+![Untitled]()
 
 **요구사항 수집 및 분석**
 
