@@ -14,7 +14,7 @@
 * 자바  
   * 가장 빨리 만나는 코어 자바9
   * 모던 자바 인 액션
-  * 이펙티브 자바  
+  * [이펙티브 자바](./Java/effective%java)
 
 * Git
   * [The Git & Github Bootcamp](./Git/The%20Git%20&%20Github%20Bootcamp/README.md)
