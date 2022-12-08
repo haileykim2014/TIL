@@ -31,5 +31,5 @@
 
 * AWS
   * AWS Certified Solutions Architect Associate
-<br>
+
 
