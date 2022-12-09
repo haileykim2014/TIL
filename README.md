@@ -4,6 +4,9 @@
 
 오늘 배운 것을 정리하는 공간입니다.
 
+* AWS
+  * AWS Certified Solutions Architect Associate
+
 * Spring
   * [스프링 입문을 위한 자바 객체 지향의 원리와 이해](./Spring/스프링%20입문을%20위한%20자바%20객체%20지향의%20원리와%20이해/README.md)
   * [토비의 스프링](./Spring/%ED%86%A0%EB%B9%84%EC%9D%98%20%EC%8A%A4%ED%94%84%EB%A7%81)  
@@ -28,8 +31,4 @@
   
 * 데이터베이스
   * [MySQL로 배우는 데이터베이스 개론과 실습](./MySQL로%20배우는%20데이터베이스%20개론과%20실습)  
-
-* AWS
-  * AWS Certified Solutions Architect Associate
-
 
