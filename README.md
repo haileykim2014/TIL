@@ -22,7 +22,6 @@
 * Git
   * [The Git & Github Bootcamp](./Git/The%20Git%20&%20Github%20Bootcamp/README.md)
 
-
 * 에세이  
   * [나는 주니어 개발자다](./essay/나는%20주니어%20개발자다)  
 
