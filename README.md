@@ -4,6 +4,9 @@
 
 오늘 배운 것을 정리하는 공간입니다.
 
+* Test
+  * 자바와 Junit을 활용한 실용주의 단위테스트
+  
 * AWS
   * AWS Certified Solutions Architect Associate
 
