@@ -8,7 +8,7 @@
   * [Head First Design Patterns](https://github.com/haileykim2014/designpattern)
 
 * Test
-  * [자바와 Junit을 활용한 실용주의 단위테스트](./Test/자바와%20Junit을%20활용한%20실용주의%20단위테스트)
+  * [자바와 Junit을 활용한 실용주의 단위테스트](https://github.com/haileykim2014/junit)
   
 * AWS
   * AWS Certified Solutions Architect Associate
